@@ -1,0 +1,36 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+BoxLayout:
+    orientation: 'vertical'
+    Label:
+        text: "Enter a Number" if app.to_roman else "Enter Roman Numeric ['I', 'V', 'X', 'L', 'C', 'D', 'M']"
+        size_hint: None, 1
+        width: root.width
+
+    TextInput:
+        id: userinput
+        hint_text: "Enter your input here"    
+        on_text: app.translate(self.text)
+        font_size: sp(32)
+
+    Button:
+        text: "Invert"
+        on_release: app.invert()
+
+    Label:
+        text: "Output: "
+        size_hint: None, 1
+        width: root.width
+
+    TextInput:
+        text: app.result
+        disabled: True
+        font_size: sp(32)
+
+    Button:
+        text: "Copy Result"
+        on_release: Clipboard.copy(app.result)
+
+    Button:
+        text: "Quit"
+        on_release: app.stop()

@@ -1,0 +1,53 @@
+<Bottle@ButtonBehavior+BoxLayout>:
+    isselected: False
+    padding: dp(12)
+    spacing: dp(12)
+    orientation: "vertical"
+    size_hint: None, None
+    size: dp(70), dp((24+12)*self.max_capacity)
+
+    canvas:
+        Color:
+            rgba: [1, .2, .2, .2] if self.isselected else [.2, .2, .2, 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Liquid@Label>:
+    canvas:
+        Color:
+            rgba: self.color_mapping.get(self.value, self.default_color)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    size_hint_y: None
+    height: dp(24)
+
+
+BoxLayout:
+    padding: dp(32)
+    spacing: dp(32)
+    orientation: "vertical"
+
+    game_mechanics: game_mechanics
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(32)
+        Button:
+            text: "Reset"
+            on_release: app.reset_game()
+        Button:
+            text: "New"
+            on_release: app.new_game()
+
+    RecycleView:
+        GameMechanics:
+            id: game_mechanics
+            spacing: dp(12)
+
+    Label:
+        size_hint_y: None
+        height: dp(32)
+        text: "You Win"
+        opacity: int(not root.game_mechanics.isgame)

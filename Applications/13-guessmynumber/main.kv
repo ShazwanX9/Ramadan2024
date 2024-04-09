@@ -1,0 +1,76 @@
+BoxLayout:
+    orientation: "vertical"
+
+    BoxLayout:
+        Image:
+            source: app.dice_image_source
+            opacity: int(app.isgame)
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: app.last_label_indicator
+                text_size: self.width-dp(.05*root.width), None
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+
+            Label:
+                text: app.label_indicator
+                text_size: self.width-dp(.05*root.width), None
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+
+            Label:
+                text: f"You have guess {app.number_of_guess:>3} times"
+                text_size: self.width-dp(.05*root.width), None
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+
+    BoxLayout:
+        size_hint_y: .3
+        TextInput:
+            id: userguess_input
+            hint_text: "Enter your number here"
+            input_filter: "int"
+            disabled: (not app.isgame) or app.loading
+        Button:
+            size_hint_x: .5
+            text: "Guess!"
+            on_release: app.guess()
+            disabled: (not app.isgame) or app.loading
+
+    BoxLayout:
+        BoxLayout:
+            orientation: "vertical"
+            Button:
+                text: "Stop Game" if app.isgame else "Start Game"
+                on_release: app.stop_game() if app.isgame else app.start_game()
+            Button:
+                text: "Quit Game"
+                on_release: app.stop()
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: [0, 0] if app.isgame else [1, 1]
+            opacity: int(not app.isgame)
+            BoxLayout:
+                Label:
+                    text: "Enter range \n(default=0)"
+                    text_size: self.width-dp(.05*root.width), None
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                TextInput:
+                    id: minimum_bound
+                    size_hint_x: .5
+                    hint_text: "Enter your number here"
+                    input_filter: "int"
+
+            BoxLayout:
+                Label:
+                    text: "Enter range \n(default=10)"
+                    text_size: self.width-dp(.05*root.width), None
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                TextInput:
+                    id: maximum_bound
+                    size_hint_x: .5
+                    hint_text: "Enter your number here"
+                    input_filter: "int"

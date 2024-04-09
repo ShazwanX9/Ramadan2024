@@ -1,0 +1,48 @@
+BoxLayout:
+    orientation: "vertical"
+
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: f"WRONG GUESS: {app.guesscount}"
+            size_hint: None, 1
+            width: root.width
+        Label:
+            text: app.content_word
+            size_hint: None, 1
+            width: root.width
+        Label:
+            text: app.content_hint
+            size_hint: None, 1
+            width: root.width
+            text_size: self.width, None
+            multiline: True
+
+    BoxLayout:
+        id: keyboard
+        orientation: "vertical"
+        BoxLayout:
+        BoxLayout:
+        BoxLayout:
+
+    BoxLayout:
+        BoxLayout:
+            orientation: "vertical"
+            TextInput:
+                id: userguess
+                hint_text: "Guess?"
+                on_focus: app.isuserguessing = args[1]
+                disabled: not app.isgame
+            Button:
+                text: "Guess Word!"
+                on_release: app.guess()
+                disabled: not app.isgame
+
+        BoxLayout:
+            orientation: "vertical"
+            Button:
+                text: "Stop Game" if app.isgame else "Start Game"
+                on_release: app.stop_game() if app.isgame else app.start_game()
+            Button:
+                text: "Quit Game"
+                on_release: app.stop()

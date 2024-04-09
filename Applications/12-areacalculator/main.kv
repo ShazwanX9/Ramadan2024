@@ -1,0 +1,165 @@
+<CustomButton@MDRaisedButton>:
+    shape: ""
+    text: str(root.shape).title()
+    theme_text_color: "Custom"
+    text_color: [41/256, 116/256, 204/256]
+    md_bg_color: [1, 23/255, 68/255, 1]
+    md_bg_color_disabled: [183/256, 28/256, 28/256, 1]
+
+<CustomTextfield@MDTextField>:
+    size_hint_y: None
+    height: dp(64)
+    hint_text: "Enter Pi [ π ]:"
+    text: "3.141592653589793"
+    theme_text_color: "Custom"
+    text_color_normal: "whitesmoke"
+    hint_text_color_normal: "whitesmoke"
+    text_color_focus: "whitesmoke"
+    hint_text_color_focus: "whitesmoke"
+    input_filter: "float"
+
+<AreaCalculator>:
+    textfield0: textfield0
+    textfield1: textfield1
+    textfield2: textfield2
+
+    isThirdFieldActive: True
+    shape: "trapezoid"
+    image: "./asset/trapezoid.png"
+    result: 0.0
+    formula: "A = ( t + b ) * h / 2"
+
+    MDFloatLayout:
+        FitImage:
+            canvas.after:
+                Color:
+                    rgba: (41/256, 116/256, 204/256, 55/100)
+                Rectangle:
+                    size: self.width, self.height
+                    pos: self.pos
+            source: "./asset/background.png"
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: dp(32)
+        padding: dp(16), dp(32)
+        # Just dummy layout
+        MDBoxLayout:
+
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: dp(74)
+            spacing: dp(8)
+
+            MDBoxLayout:
+                spacing: dp(8)
+                CustomButton:
+                    id: rectangle_btn
+                    size_hint: 1, 1
+                    shape: "rectangle"
+                    disabled: root.shape==self.shape
+                    on_release: root.button_click(self)
+                CustomButton:
+                    id: triangle_btn
+                    size_hint: 1, 1
+                    shape: "triangle"
+                    disabled: root.shape==self.shape
+                    on_release: root.button_click(self)
+                CustomButton:
+                    id: parallelogram_btn
+                    size_hint: 1, 1
+                    shape: "parallelogram"
+                    disabled: root.shape==self.shape
+                    on_release: root.button_click(self)
+
+            MDBoxLayout:
+                spacing: dp(8)
+                CustomButton:
+                    id: trapezoid_btn
+                    size_hint: 1, 1
+                    shape: "trapezoid"
+                    disabled: root.shape==self.shape
+                    on_release: root.button_click(self)
+                CustomButton:
+                    id: circle_btn
+                    size_hint: 1, 1
+                    shape: "circle"
+                    disabled: root.shape==self.shape
+                    on_release: root.button_click(self)
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: dp(90)
+            spacing: dp(8)
+
+            # Just dummy layout
+            MDBoxLayout:
+
+            Image:
+                size_hint: None, None
+                size: dp(160), dp(90)
+                source: root.image
+                anim_count: 0
+                loop_count: 0
+                anim_loop: 1
+                anim_delay: 1/8
+                on_texture: root.animate_image(self)
+
+            MDLabel:
+                text: root.formula
+                markup: True
+                halign: 'left'
+                size_hint_x: None
+                width: self.texture_size[0] if self.text else 0
+                text_size: None, None
+                font_size: sp(20)
+                theme_text_color: 'Custom'
+                text_color: 'whitesmoke'
+
+            # Just dummy layout
+            MDBoxLayout:
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(10)
+            padding: dp(10)
+            size_hint_y: None
+            height: dp(176)
+
+            CustomTextfield:
+                id: textfield0
+                input_filter: "float"
+                on_text: root.calculate(self, self.text)
+
+            MDBoxLayout:
+                spacing: dp(8)
+
+                CustomTextfield:
+                    id: textfield1
+                    input_filter: "float"
+                    on_text: root.calculate(self, self.text)
+
+                CustomTextfield:
+                    id: textfield2
+                    input_filter: "float"
+                    size_hint: [1, None] if root.isThirdFieldActive else [0, 0]
+                    opacity: int(root.isThirdFieldActive)
+                    on_text: root.calculate(self, self.text)
+
+        MDRelativeLayout:
+            size_hint_y: None
+            height: dp(75)
+
+            MDLabel:
+                size_hint_y: None
+                height: dp(64)
+                font_size: sp(24)
+                text: f"Result: {root.result:.5} Unit[sup]2[/sup]"
+                markup: True
+                halign: "right"
+                theme_text_color: "Custom"
+                text_color: "whitesmoke"
+
+        # Just dummy layout
+        MDBoxLayout:

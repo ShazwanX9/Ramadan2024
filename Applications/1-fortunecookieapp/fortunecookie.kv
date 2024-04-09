@@ -1,0 +1,24 @@
+<CookieLayout>:
+    label: label
+    fortunecookie_image: fortunecookie_image
+    MDBoxLayout:
+        Image:
+            id: fortunecookie_image
+            source: "./asset/fortunecookie.zip"
+            anim_delay: -1
+            anim_loop: 1
+            on_touch_up: app.root.read_cookie()
+            on_texture: app.root.image_on_texture()
+
+    MDBoxLayout:
+        size_hint: None, None
+        height: root.label.height
+        width: root.fortunecookie_image.texture_size[0]
+        padding: dp(32)
+        pos_hint: {'center_x': .5,'center_y': .45}
+
+        MDLabel:
+            id: label
+            valign: "center"
+            halign: "center"
+            font_style: "Campana"

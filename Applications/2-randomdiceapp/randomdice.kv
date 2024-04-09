@@ -1,0 +1,47 @@
+RelativeLayout:
+    BoxLayout:
+        
+        BoxLayout:
+            id: left_side
+            orientation: 'vertical'
+
+            Label:
+                text: app.amount_text
+
+            Slider:
+                id: slider
+                min: 1
+                max: app.DICE_MAX
+                value: 1
+                value_track: True
+                value_track_color: "red"
+                step: 1
+                # orientation: 'vertical'
+                on_touch_move: app.slider_changes()
+                on_touch_up: app.slider_changes() # Just to make sure lol
+
+            Label:
+                text: app.result_text
+
+            Button:
+                id: start_button
+                text: "Hit!"
+                on_release: app.roll_button_click_fx()
+
+            Button:
+                text: "Reset!"
+                on_release: app.prep_dice()
+
+        GridLayout:
+            # canvas:
+            #     Color:
+            #         rgba: 1,0,0,1
+            #     Rectangle:
+            #         pos: self.pos
+            #         size: self.size
+
+            id: right_side
+            cols: 2
+            # orientation: 'lr-tb'
+            padding: dp(32)
+            spacing: dp(32)

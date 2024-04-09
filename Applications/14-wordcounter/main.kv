@@ -1,0 +1,16 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: dp(32)
+    spacing: dp(16)
+
+    Label:
+        text: f"Letter Count: {app.lettercount}"
+        size_hint: None, None
+        size: root.width, self.texture_size[1]
+    Label:
+        text: f"Word Count: {app.wordcount}"
+        size_hint: None, None
+        size: root.width, self.texture_size[1]
+    TextInput:
+        hint_text: "Enter your sentences."
+        on_text: app.count(self.text)

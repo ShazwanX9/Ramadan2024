@@ -1,0 +1,59 @@
+BoxLayout:
+    orientation: 'vertical'
+    RelativeLayout:
+        Label:
+            text: f"Round {app.question_number}/{app.get_total_question_number()}"
+            pos_hint: {'center_x': 0.15,'center_y': 0.9}
+        Label:
+            text: app.prompt_message
+            text_size: root.width*.3, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.85}
+            halign: "center"
+        Label:
+            text: app.timer_label
+            pos_hint: {'center_x': 0.85,'center_y': 0.85}
+        Label:
+            text: app.question_label
+            text_size: root.width*.8, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            halign: "center"
+
+    BoxLayout:
+        id: answer_layout
+        orientation: 'vertical'
+        Button:
+            id: btn_0
+            text: app.answer_option0
+            text_size: root.width*.5, None
+            on_release: app.select_answer(0)
+            disabled: not app.is_game
+            halign: "center"
+        Button:
+            id: btn_1
+            text: app.answer_option1
+            text_size: root.width*.5, None
+            on_release: app.select_answer(1)
+            disabled: not app.is_game
+            halign: "center"
+        Button:
+            id: btn_2
+            text: app.answer_option2
+            text_size: root.width*.5, None
+            on_release: app.select_answer(2)
+            disabled: not app.is_game
+            halign: "center"
+        Button:
+            id: btn_3
+            text: app.answer_option3
+            text_size: root.width*.5, None
+            on_release: app.select_answer(3)
+            disabled: not app.is_game
+            halign: "center"
+
+        BoxLayout:
+            Button:
+                text: "Stop Game" if app.is_game else "Start Game"
+                on_release: app.stop_game() if app.is_game else app.start_game()
+            Button:
+                text: "Quit Game"
+                on_release: app.stop()

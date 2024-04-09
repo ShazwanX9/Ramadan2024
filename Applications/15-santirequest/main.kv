@@ -1,0 +1,42 @@
+<Piece>:
+    isselected: False
+    background_color: self.default_color if self.isselected else self.color_mapping[self.piecevalue]
+    disabled: app.isloading
+
+BoxLayout:
+    orientation: 'vertical'
+    
+    BoxLayout:
+        size_hint_y: None
+        height: dp(64)
+
+        Label:
+            size_hint_y: None
+            height: dp(32)
+            text: f"Player score: {app.score}"
+            opacity: int(app.isgame)
+
+        Label:
+            size_hint_y: None
+            height: dp(32)
+            text: f"Player move: {app.number_of_move}"
+            opacity: int(app.isgame)
+
+
+    RecycleView:
+        GridLayout:
+            id: game_layout
+            rows: app.ROWS
+            cols: app.COLS
+
+    BoxLayout:
+        size_hint_y: None
+        height: dp(64)
+        BoxLayout:
+            orientation: "vertical"
+            Button:
+                text: "Stop Game" if app.isgame else "Start Game"
+                on_release: app.stop_game() if app.isgame else app.start_game()
+            Button:
+                text: "Quit Game"
+                on_release: app.stop()

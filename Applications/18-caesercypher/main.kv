@@ -1,0 +1,46 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+BoxLayout:
+    orientation: 'vertical'
+    Label:
+        text: "Enter text to encrypt" if app.to_encrypt else "Enter text to decrypt"
+        size_hint: None, 1
+        width: root.width
+
+    BoxLayout:
+        TextInput:
+            id: userinput
+            hint_text: "Enter your input here"
+            on_text: app.translate(self.text)
+            font_size: sp(32)
+
+        TextInput:
+            id: usershift
+            hint_text: "Enter shift"
+            font_size: sp(32)
+            input_filter: "int"
+            size_hint_x: None
+            width: dp(64)
+            on_text: app.max_len(2)
+
+    Button:
+        text: "Invert"
+        on_release: app.invert()
+
+    Label:
+        text: "Output: "
+        size_hint: None, 1
+        width: root.width
+
+    TextInput:
+        text: app.result
+        disabled: True
+        font_size: sp(32)
+
+    Button:
+        text: "Copy Result"
+        on_release: Clipboard.copy(app.result)
+
+    Button:
+        text: "Quit"
+        on_release: app.stop()

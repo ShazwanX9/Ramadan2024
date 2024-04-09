@@ -1,0 +1,139 @@
+<HandLayout@BoxLayout>:
+    orientation: "vertical"
+    size_hint_y: None
+    height: dp(100)
+    spacing: dp(8)
+
+    isgame: False
+    cardvalue: 0
+    hand: hand
+
+    Label:
+        text: f"Card Value: {root.cardvalue}" if root.isgame else ""
+        text_size: self.width, None
+        height: self.texture_size[1]
+        halign: "left"
+
+    BoxLayout:
+        id: hand
+        spacing: dp(8)
+        size_hint_y: None
+        height: self.minimum_height
+
+<Chip@Button>:
+    value: 250
+    size_hint_y: None
+    height: dp(30)
+    text: f"$ {self.value}"
+    on_release: app.root.bet(self.value)
+
+<ChipLayout@BoxLayout>:
+    orientation: "vertical"
+    spacing: dp(8)
+    size_hint_x: None
+    width: dp(45)
+
+    isgame: False
+
+    Chip:
+        value: 250
+        disabled: root.isgame
+    Chip:
+        value: 100
+        disabled: root.isgame
+    Chip:
+        value: 50
+        disabled: root.isgame
+    Chip:
+        value: 25
+        disabled: root.isgame
+    Chip:
+        value: 10
+        disabled: root.isgame
+    Chip:
+        value: 5
+        disabled: root.isgame
+
+<GameUI>:
+    orientation: "vertical"
+    spacing: dp(32)
+    padding: dp(16), dp(32)
+
+    moneyvalue: 9800
+    betvalue: 200
+    iswinning: False
+    isgame: False
+
+    bot: bot
+    player: player
+
+    BoxLayout:
+    RelativeLayout:
+        size_hint_y: None
+        height: dp(30)
+        Label:
+            text: "Baby Blackjack"
+            font_size: sp(24)
+        Button:
+            size_hint: None, None
+            size: dp(45), dp(30)
+            text: "Menu"
+            pos_hint: {"right": 1, "center_y": .5}
+
+    HandLayout:
+        id: bot
+        isgame: root.isgame
+
+    RelativeLayout:
+        size_hint_y: None
+        height: dp(220)
+        ChipLayout:
+            isgame: root.isgame
+
+        Label:
+            text: f"{'Winning' if root.iswinning else 'Losing'} Game"
+            pos_hint: {"center_y": .55}
+            opacity: int(not root.isgame)
+        Label:
+            text: f"Bet Value: $ {root.betvalue}"
+            pos_hint: {"center_y": .45}
+            # text_size: self.texture_size
+        Label:
+            text: f"Money: $ {root.moneyvalue}"
+            halign: "right"
+            pos_hint: {"center_y": .58}
+            text_size: self.width, None
+
+        Button:
+            text: "Start Game"
+            size_hint: None, None
+            size: dp(100), dp(30)
+            pos_hint: {"right": 1, "center_y": .45}
+            on_release: root.start_game()
+            disabled: root.isgame
+        Button:
+            text: "Clear Bet"
+            size_hint: None, None
+            size: dp(100), dp(30)
+            pos_hint: {"right": 1, "center_y": .3}
+            on_release: root.clear_bet()
+            disabled: root.isgame
+        Button:
+            text: "Hit"
+            size_hint: None, None
+            size: dp(100), dp(30)
+            pos_hint: {"right": .65, "y": 0}
+            on_release: root.player_hit()
+            disabled: not root.isgame
+        Button:
+            text: "Stand"
+            size_hint: None, None
+            size: dp(100), dp(30)
+            pos_hint: {"right": 1, "y": 0}
+            on_release: root.compute_game()
+            disabled: not root.isgame
+
+    HandLayout:
+        id: player
+        isgame: root.isgame
+    BoxLayout:

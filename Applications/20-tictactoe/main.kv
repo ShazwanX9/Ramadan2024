@@ -1,0 +1,47 @@
+<XOButton@Button>:
+    coor: -1, -1
+    text: ""
+    disabled: self.text!="" or not app.isgame
+    on_release: app.click(self, self.coor)
+
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        Label:
+            text: app.win_text
+            size_hint: None, 1
+            width: self.width
+
+    BoxLayout:
+        id: tictactoe
+        orientation: 'vertical'
+        BoxLayout:
+            XOButton:
+                coor: 0, 0
+            XOButton:
+                coor: 0, 1
+            XOButton:
+                coor: 0, 2
+        BoxLayout:
+            XOButton:
+                coor: 1, 0
+            XOButton:
+                coor: 1, 1
+            XOButton:
+                coor: 1, 2
+        BoxLayout:
+            XOButton:
+                coor: 2, 0
+            XOButton:
+                coor: 2, 1
+            XOButton:
+                coor: 2, 2
+
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "Stop Game" if app.isgame else "Start Game"
+            on_release: app.stop_game() if app.isgame else app.start_game()
+        Button:
+            text: "Quit Game"
+            on_release: app.stop()

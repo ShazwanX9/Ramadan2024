@@ -1,0 +1,39 @@
+FloatLayout:
+    Label:
+        text: f"Win: {app.win_count:>5}"
+        pos_hint: {'center_x': .15,'center_y': .95}
+        text_size: dp(200), None
+        halign: "right"
+    Label:
+        text: f"Draw: {app.draw_count:>5}"
+        pos_hint: {'center_x': .15,'center_y': .9}
+        text_size: dp(200), None
+        halign: "right"
+    Label:
+        text: f"Lose: {app.lose_count:>5}"
+        pos_hint: {'center_x': .15,'center_y': .85}
+        text_size: dp(200), None
+        halign: "right"
+
+    Label:
+        text: "Player: " + app.p1_text
+        pos_hint: {'center_x': .3,'center_y': .7}
+    Image:
+        source: app.p1_source
+        pos_hint: {'center_x': .3,'center_y': .5}
+        size_hint_max_x: min(root.width*.3, root.height*.3)
+
+    Label:
+        text: "Bot: " + app.p2_text
+        pos_hint: {'center_x': .7,'center_y': .7}
+    Image:
+        source: app.p2_source
+        pos_hint: {'center_x': .7,'center_y': .5}
+        size_hint_max_x: min(root.width*.3, root.height*.3)
+
+
+    BoxLayout:
+        id: button_holder
+        size_hint_y: None
+        height: .3*root.height
+        pos_hint: {'center_x': .5,'center_y': 0.15}

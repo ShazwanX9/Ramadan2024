@@ -1,0 +1,86 @@
+FloatLayout:
+    selected: ""
+    result: result
+    userinput: userinput
+    to_option: to_option
+    from_option: from_option
+
+    ScatterLayout:
+        rotation: 90
+        size_hint: None, None
+        size: root.height, dp(64)
+        x: dp(0)
+
+        BoxLayout:
+            Button:
+                text: "Length"
+                disabled: root.selected==self.text
+                on_release: app.type_selected(self.text)
+            Button:
+                text: "Weight"
+                disabled: root.selected==self.text
+                on_release: app.type_selected(self.text)
+            Button:
+                text: "Area"
+                disabled: root.selected==self.text
+                on_release: app.type_selected(self.text)
+            Button:
+                text: "Volume"
+                disabled: root.selected==self.text
+                on_release: app.type_selected(self.text)
+            Button:
+                text: "Temperature"
+                disabled: root.selected==self.text
+                on_release: app.type_selected(self.text)
+
+    BoxLayout:
+        x: dp(64)
+        orientation: "vertical"
+        size_hint_x: None
+        width: root.width - self.x
+        padding: dp(16)
+        spacing: dp(16)
+
+        Label:
+            text: "From"
+            size_hint: 1, None
+            height: self.texture_size[1]
+        ScrollView:
+            BoxLayout:
+                id: from_option
+                selected: ""
+                orientation: "vertical"
+                size_hint_y: None
+                height: root.height
+        TextInput:
+            id: userinput
+            hint_text: ""
+            input_filter: "float"
+            size_hint: 1, None
+            height: dp(32)
+            multiline: False
+            on_text: app.convert_value(self.text)
+        Button:
+            text: "Invert"
+            size_hint: 1, None
+            height: dp(32)
+            on_release: app.invert_selection()
+        Label:
+            text: "To"
+            size_hint: 1, None
+            height: self.texture_size[1]
+        ScrollView:
+            BoxLayout:
+                id: to_option
+                selected: ""
+                orientation: "vertical"
+                size_hint_y: None
+                height: root.height
+        TextInput:
+            id: result
+            hint_text: ""
+            input_filter: "float"
+            size_hint: 1, None
+            height: dp(32)
+            multiline: False
+            disabled: True

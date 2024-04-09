@@ -1,0 +1,35 @@
+RelativeLayout:
+    chatlist: "Bot: Hello There Sir! Anything I could help you today?"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Jarven 2050: Future of Jarvis and Devin!"
+            size_hint_y: None
+            halign: "left"
+            text_size: self.width-dp(.05*root.width), None
+            font_size: sp(24)
+        ScrollView:
+            size_hint_y: .9
+            Label:
+                text: root.chatlist
+                text_size: self.width-dp(.05*root.width), None
+                size_hint_y: None
+                height: self.texture_size[1]
+                pos_hint: {"center_x": .5, "y": 1}
+                line_height: sp(2)
+        BoxLayout:
+            size_hint: 1, .3
+            Button:
+                text: "False" if app.isgame else "I don't have anything to talk about."
+                text_size: self.width-dp(.05*root.width), None
+                on_release: app.btn_response(False) if app.isgame else app.stop()
+                disabled: app.isdisablebtn
+            Button:
+                text: "True" if app.isgame else "Hey, I'm bored! Let's play a game!"
+                text_size: self.width-dp(.05*root.width), None
+                on_release: app.btn_response(True) if app.isgame else app.startgame()
+                disabled: app.isdisablebtn
+            Button:
+                text: "I'm done!" if app.isgame else ""
+                on_release: app.stop()
+                disabled: not app.isgame

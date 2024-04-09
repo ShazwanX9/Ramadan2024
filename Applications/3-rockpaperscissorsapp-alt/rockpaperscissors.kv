@@ -1,0 +1,73 @@
+FloatLayout:
+    Label:
+        text: "Player 1: " + app.p1_text
+        pos_hint: {'center_x': .3,'center_y': .7}
+    Image:
+        source: app.p1_source
+        pos_hint: {'center_x': .3,'center_y': .5}
+        size_hint_max_x: min(root.width*.3, root.height*.3)
+
+    Label:
+        text: "Player 2: " + app.p2_text
+        pos_hint: {'center_x': .7,'center_y': .7}
+    Image:
+        source: app.p2_source
+        pos_hint: {'center_x': .7,'center_y': .5}
+        size_hint_max_x: min(root.width*.3, root.height*.3)
+
+    Label:
+        text: app.time_text
+        pos_hint: {'center_x': .5,'center_y': .95}
+    Label:
+        text: f"Score: {app.score_value:05}"
+        pos_hint: {'center_x': .15,'center_y': .95}
+        text_size: dp(200), None
+        halign: "right"
+    Label:
+        text: f"Right: {app.right_value:>10}"
+        pos_hint: {'center_x': .15,'center_y': .9}
+        text_size: dp(200), None
+        halign: "right"
+    Label:
+        text: f"Wrong: {app.wrong_value:>10}"
+        pos_hint: {'center_x': .15,'center_y': .85}
+        text_size: dp(200), None
+        halign: "right"
+    Label:
+        text: f"Round: {app.round_value:2}"
+        pos_hint: {'center_x': .85,'center_y': .95}
+        halign: "left"
+    Image:
+        source: app.player_turn_source
+        pos_hint: {'center_x': .5,'center_y': .8}
+        size_hint_max_x: min(root.width*.3, root.height*.3)
+    Label:
+        text: f"Result for Player: {(not app.is_player_1) + 1}" if app.is_game else "Loading"
+        pos_hint: {'center_x': .5,'center_y': .65}
+
+    BoxLayout:
+        size_hint: 1, None
+        height: root.height*.2
+        pos_hint: {'center_x': 0.5,'center_y': 0.1}
+
+        Button:
+            text: "Lose"
+            disabled: not app.is_game
+            on_release: app.decide(app.LOSE)
+        Button:
+            text: "Draw"
+            disabled: not app.is_game
+            on_release: app.decide(app.DRAW)
+        Button:
+            text: "Win"
+            disabled: not app.is_game
+            on_release: app.decide(app.WIN)
+
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: "Stop Game" if app.is_game else "Start Game"
+                on_release: app.stop_game() if app.is_game else app.start_game()
+            Button:
+                text: "Quit"
+                on_release: app.stop()
