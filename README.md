@@ -35,27 +35,68 @@ Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/ShazwanSh
 
 Here are previews of the Kivy applications developed during the Ramadan Code Challenge:
 
-1. <img src="Screenshots/1-fortunecookieapp.gif" width="200">
-2. <img src="Screenshots/2-randomdiceapp.gif" width="200">
-3. <img src="Screenshots/3-rockpaperscissorsapp-alt.gif" width="200">
-4. <img src="Screenshots/3-rockpaperscissorsapp-traditional.gif" width="200">
-5. <img src="Screenshots/4-whowanttobeamillionaireapp.gif" width="200">
-6. <img src="Screenshots/5-textbasedadventure.gif" width="200">
-7. <img src="Screenshots/6-chatbot.gif" width="200">
-8. <img src="Screenshots/7-truthordare.gif" width="200">
-9. <img src="Screenshots/8-leapyear.gif" width="200">
-10. <img src="Screenshots/9-babyblackjack.gif" width="200">
-11. <img src="Screenshots/10-metricconversiontool.gif" width="200">
-12. <img src="Screenshots/11-anasrequest.gif" width="200">
-13. <img src="Screenshots/12-areacalculator.gif" width="200">
-14. <img src="Screenshots/13-guessmynumber.gif" width="200">
-15. <img src="Screenshots/14-wordcounter.gif" width="200">
-16. <img src="Screenshots/15-santirequest.gif" width="200">
-17. <img src="Screenshots/16-morsecode.gif" width="200">
-18. <img src="Screenshots/17-romannumeralconverter.gif" width="200">
-19. <img src="Screenshots/18-caesercypher.gif" width="200">
-20. <img src="Screenshots/19-hangman.gif" width="200">
-21. <img src="Screenshots/20-tictactoe.gif" width="200">
+1. Fortune Cookie
+<img src="Screenshots/1-fortunecookieapp.gif" width="200">
+
+2. Random Dice
+<img src="Screenshots/2-randomdiceapp.gif" width="200">
+
+3. Rock Paper Scissors - Judge Version
+<img src="Screenshots/3-rockpaperscissorsapp-alt.gif" width="200">
+
+4. Rock Paper Scissors - Traditional
+<img src="Screenshots/3-rockpaperscissorsapp-traditional.gif" width="200">
+
+5. Who want to be a millionaire
+<img src="Screenshots/4-whowanttobeamillionaireapp.gif" width="200">
+
+6. Text based adventure - Into the Jungle
+<img src="Screenshots/5-textbasedadventure.gif" width="200">
+
+7. Chatbot - Jarven
+<img src="Screenshots/6-chatbot.gif" width="200">
+
+8. Truth or Dare - TryDaren
+<img src="Screenshots/7-truthordare.gif" width="200">
+
+9. Leap Year
+<img src="Screenshots/8-leapyear.gif" width="200">
+
+10. Baby Blackjack
+<img src="Screenshots/9-babyblackjack.gif" width="200">
+
+11. Metric Conversion Tool
+<img src="Screenshots/10-metricconversiontool.gif" width="200">
+
+12. Anas's Request
+<img src="Screenshots/11-anasrequest.gif" width="200">
+
+13. Area Calculator
+<img src="Screenshots/12-areacalculator.gif" width="200">
+
+14. Guess My Number - Dice Version
+<img src="Screenshots/13-guessmynumber.gif" width="200">
+
+15. Word Counter
+<img src="Screenshots/14-wordcounter.gif" width="200">
+
+16. Santi's Request
+<img src="Screenshots/15-santirequest.gif" width="200">
+
+17. Morse Code
+<img src="Screenshots/16-morsecode.gif" width="200">
+
+18. Roman Numeric Converter
+<img src="Screenshots/17-romannumeralconverter.gif" width="200">
+
+19. Caeser Cypher
+<img src="Screenshots/18-caesercypher.gif" width="200">
+
+20. Hangman
+<img src="Screenshots/19-hangman.gif" width="200">
+
+21. Tic Tac Toe
+<img src="Screenshots/20-tictactoe.gif" width="200">
 
 Happy coding!
 
