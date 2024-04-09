@@ -35,27 +35,27 @@ Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/ShazwanSh
 
 Here are previews of the Kivy applications developed during the Ramadan Code Challenge:
 
-1. <img src="Screenshots/fortunecookieapp.gif" width="200">
-2. <img src="Screenshots/randomdiceapp.gif" width="200">
-3. <img src="Screenshots/rockpaperscissorsapp-alt.gif" width="200">
-4. <img src="Screenshots/rockpaperscissorsapp-traditional.gif" width="200">
-5. <img src="Screenshots/whowanttobeamillionaireapp.gif" width="200">
-6. <img src="Screenshots/textbasedadventure.gif" width="200">
-7. <img src="Screenshots/chatbot.gif" width="200">
-8. <img src="Screenshots/truthordare.gif" width="200">
-9. <img src="Screenshots/leapyear.gif" width="200">
-10. <img src="Screenshots/babyblackjack.gif" width="200">
-11. <img src="Screenshots/metricconversiontool.gif" width="200">
-12. <img src="Screenshots/anasrequest.gif" width="200">
-13. <img src="Screenshots/areacalculator.gif" width="200">
-14. <img src="Screenshots/guessmynumber.gif" width="200">
-15. <img src="Screenshots/wordcounter.gif" width="200">
-16. <img src="Screenshots/santirequest.gif" width="200">
-17. <img src="Screenshots/morsecode.gif" width="200">
-18. <img src="Screenshots/romannumeralconverter.gif" width="200">
-19. <img src="Screenshots/caesercypher.gif" width="200">
-20. <img src="Screenshots/hangman.gif" width="200">
-21. <img src="Screenshots/tictactoe.gif" width="200">
+1. ![Fortune Cookie App](Screenshots/fortunecookieapp.gif)
+2. ![Random Dice App](Screenshots/randomdiceapp.gif)
+3. ![Rock Paper Scissors App - Alt](Screenshots/rockpaperscissorsapp-alt.gif)
+4. ![Rock Paper Scissors App - Traditional](Screenshots/rockpaperscissorsapp-traditional.gif)
+5. ![Who Wants to Be a Millionaire App](Screenshots/whowanttobeamillionaireapp.gif)
+6. ![Text-based Adventure](Screenshots/textbasedadventure.gif)
+7. ![Chatbot](Screenshots/chatbot.gif)
+8. ![Truth or Dare](Screenshots/truthordare.gif)
+9. ![Leap Year](Screenshots/leapyear.gif)
+10. ![Baby Blackjack](Screenshots/babyblackjack.gif)
+11. ![Metric Conversion Tool](Screenshots/metricconversiontool.gif)
+12. ![Anas's Request](Screenshots/anasrequest.gif)
+13. ![Area Calculator](Screenshots/areacalculator.gif)
+14. ![Guess My Number](Screenshots/guessmynumber.gif)
+15. ![Word Counter](Screenshots/wordcounter.gif)
+16. ![Santi's Request](Screenshots/santirequest.gif)
+17. ![Morse Code](Screenshots/morsecode.gif)
+18. ![Roman Numeral Converter](Screenshots/romannumeralconverter.gif)
+19. ![Caesar Cypher](Screenshots/caesercypher.gif)
+20. ![Hangman](Screenshots/hangman.gif)
+21. ![Tic Tac Toe](Screenshots/tictactoe.gif)
 
 Happy coding!
 
